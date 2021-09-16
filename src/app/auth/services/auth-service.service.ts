@@ -11,6 +11,6 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
 
   login():Observable<Token>{
-    return this.http.post<Token>('http://localhost:8080/authenticate', {username: 'admin', password:'admin'})
+    return this.http.post<Token>('http://localhost:8080/techshop/web/v1/authenticate', {username: 'admin', password:'admin'})
   }
 }

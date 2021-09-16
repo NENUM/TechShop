@@ -36,6 +36,12 @@ export class AdministradorServiceService {
     })
   }
 
+  getProductosID(id:number):Observable<Producto>{
+    return this.http.get<Producto>(`http://localhost:8080/techshop/web/v1/product/${id}`,{
+      headers: this.headerParams
+    })
+  }
+
   deleteProductos(id:number):Observable<string>{
     return this.http.delete<string>(`http://localhost:8080/techshop/web/v1/product/${id}`,{
       headers: this.headerParams

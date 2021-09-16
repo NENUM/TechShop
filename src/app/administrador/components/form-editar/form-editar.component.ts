@@ -15,6 +15,7 @@ export class FormEditarComponent implements OnInit {
               private productService: AdministradorServiceService) { }
 
   ngOnInit(): void {
+    this.obtenerProductoID();
   }
 
   producto!: Producto;
@@ -24,10 +25,19 @@ export class FormEditarComponent implements OnInit {
   descripcion: string = '';
   imagen!: string;
   message: boolean = true;
+  id = this.config.data;
 
-  editarProducto(){
-    this.config.data
-    
+  obtenerProductoID(){
+    this.productService.getProductosID(this.id)
+      .subscribe(({nombre, precio, cantidad, descripcion})=>{
+        this.nombre = nombre
+        this.precio = precio
+        this.cantidad = cantidad
+        this.descripcion = descripcion
+      })
+  }
+
+  editarProducto(){    
     const producto = {
       nombre : this.nombre,
       descripcion : this.descripcion,
@@ -39,9 +49,8 @@ export class FormEditarComponent implements OnInit {
       console.log('Campos vacios')
       
     }else{
-      this.productService.putProductos(this.config.data, producto)
+      this.productService.putProductos(this.id, producto)
         .subscribe((res)=>{
-          console.log('Producto: ',res)
           this.ref.close(res)
         }, 
         (err)=>{

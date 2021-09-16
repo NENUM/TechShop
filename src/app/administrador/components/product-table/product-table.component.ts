@@ -51,8 +51,10 @@ export class ProductTableComponent implements OnInit {
   //Eliminar producto por ID
   eliminarProducto(id:number){
     this.productos.deleteProductos(id)
-      .subscribe((res)=>{});
-    this.products = this.products.filter(producto=>producto.id!==id);
+      .subscribe((res)=>{
+        //this.products = this.products.filter(producto=>producto.id!==id);
+      });
+    
     this.messageService.clear('c');
   }
   //Mostrar la ventana y mensaje de editar producto
@@ -75,7 +77,7 @@ export class ProductTableComponent implements OnInit {
           summary:'Producto editado correctamente',
         });
       }
-      //this.products = this.products.filter(producto=>producto.id==id)
+      this.obtenerProductos();
     });
   }
   //Metodo de filtrado
