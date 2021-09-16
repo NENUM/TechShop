@@ -1,0 +1,14 @@
+<p-toast></p-toast>
+<p-tabMenu [model]="items"></p-tabMenu>
+<br>
+<div class="centrar">
+    <button 
+    pButton 
+    label="Añadir Productos"
+    icon="pi pi-plus"
+    class="p-button-success"
+    (click)="show()"
+    ></button>
+</div>
+<br>
+<app-product-table></app-product-table>
