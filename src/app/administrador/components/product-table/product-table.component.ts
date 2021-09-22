@@ -29,6 +29,7 @@ export class ProductTableComponent implements OnInit {
               public dialogService: DialogService, 
               public messageService: MessageService,
               public primengConfig: PrimeNGConfig) { }
+
     //Al iniciarse trae los productos y las opciones de filtrado
   ngOnInit(): void {
      this.obtenerProductos();
@@ -77,7 +78,7 @@ export class ProductTableComponent implements OnInit {
           summary:'Producto editado correctamente',
         });
       }
-      this.obtenerProductos();
+      //this.obtenerProductos();
     });
   }
   //Metodo de filtrado

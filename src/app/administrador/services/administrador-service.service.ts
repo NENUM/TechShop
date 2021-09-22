@@ -9,17 +9,21 @@ import { Observable } from 'rxjs';
 export class AdministradorServiceService {
 
   token: string = '';
-
   constructor(private http:HttpClient) {
     this.token = localStorage.getItem('token')||'';
    }
 
   get headerParams(){
-    return new HttpHeaders().append('Authorization', 'Bearer '+ this.token)
+    return new HttpHeaders().append('Authorization', 'Bearer '+ this.token);
   }
 
-  postProductos(producto: Producto):Observable<Producto>{
-    return this.http.post<Producto>('http://localhost:8080/techshop/web/v1/product/save',producto, {
+  postProductos(producto: Producto, imagen:File):Observable<Producto>{
+    let form = new FormData();
+    form.append('file', imagen, imagen.name);
+    form.append('request', JSON.stringify(producto));
+    console.log('Esta es imagen cuando se sube: ',imagen)
+    this.headerParams.append('Content-Type','multipart/form-data');
+    return this.http.post<Producto>('http://localhost:8080/techshop/web/v1/product/save',form, {
       headers: this.headerParams
     });
   }
