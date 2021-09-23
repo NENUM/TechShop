@@ -25,7 +25,7 @@
             </span>
         </div>
         <div class="field col">
-            <p-fileUpload name="myfile[]" url="./assets/img"></p-fileUpload>
+            <input type="file" name="imagen" (change)="subirArchivo($event)">
         </div>
         <div class="col-4 col-offset-4">
             <button pButton label="Añadir" (click)="editarProducto()" type="button"></button>

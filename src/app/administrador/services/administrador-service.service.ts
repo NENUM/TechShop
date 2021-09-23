@@ -28,8 +28,11 @@ export class AdministradorServiceService {
     });
   }
 
-  putProductos(id:number, producto: Producto):Observable<Producto>{
-    return this.http.put<Producto>(`http://localhost:8080/techshop/web/v1/product/${id}`,producto, {
+  putProductos(id:number, producto: Producto, imagen:File):Observable<Producto>{
+    let form = new FormData();
+    form.append('file', imagen, imagen.name);
+    form.append('request', JSON.stringify(producto));
+    return this.http.put<Producto>(`http://localhost:8080/techshop/web/v1/product/${id}`,form, {
       headers: this.headerParams
     });
   }
