@@ -46,9 +46,10 @@ export class AdministradorServiceService {
     })
   }
 
-  deleteProductos(id:number):Observable<string>{
+  deleteProductos(id:number, imagenId:string):Observable<string>{
     return this.http.delete<string>(`http://localhost:8080/techshop/web/v1/product/${id}`,{
-      headers: this.headerParams
+      headers: this.headerParams,
+      body: imagenId
     })
   }
 }

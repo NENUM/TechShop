@@ -50,8 +50,8 @@ export class ProductTableComponent implements OnInit {
       )
   }
   //Eliminar producto por ID
-  eliminarProducto(id:number){
-    this.productos.deleteProductos(id)
+  eliminarProducto(id:number, imagenId:string){
+    this.productos.deleteProductos(id, imagenId)
       .subscribe((res)=>{
         //this.products = this.products.filter(producto=>producto.id!==id);
       });
