@@ -54,6 +54,8 @@ export class ProductTableComponent implements OnInit {
     this.productos.deleteProductos(id, imagenId)
       .subscribe((res)=>{
         //this.products = this.products.filter(producto=>producto.id!==id);
+        console.log(id);
+        
       });
     
     this.messageService.clear('c');

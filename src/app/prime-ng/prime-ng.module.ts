@@ -13,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {PanelModule} from 'primeng/panel';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
+import {TableModule} from 'primeng/table';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {ToastModule} from 'primeng/toast';
 
@@ -37,6 +38,7 @@ import {ToastModule} from 'primeng/toast';
     PanelModule,
     RatingModule,
     RippleModule,
+    TableModule,
     TabMenuModule,
     ToastModule
   ]

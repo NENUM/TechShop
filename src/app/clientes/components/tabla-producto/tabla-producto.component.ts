@@ -19,8 +19,6 @@ export class TablaProductoComponent implements OnInit {
 
   loading: boolean = false;
 
-  cart: number[] = [];
-
   constructor(private productos:ClienteService, public primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
@@ -55,8 +53,7 @@ export class TablaProductoComponent implements OnInit {
   }
 
   addCart(id:number){
-    this.cart.push(id)
-    console.log(this.cart);
+    console.log(id);
   }
 
 }

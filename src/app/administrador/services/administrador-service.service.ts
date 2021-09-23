@@ -38,6 +38,8 @@ export class AdministradorServiceService {
   }
 
   getProductos():Observable<Producto[]>{
+    console.log(this.headerParams);
+    
     return this.http.get<Producto[]>('http://localhost:8080/techshop/web/v1/product',{
       headers: this.headerParams
     })

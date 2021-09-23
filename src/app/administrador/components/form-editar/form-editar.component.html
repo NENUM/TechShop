@@ -1,31 +1,58 @@
+<p-toast></p-toast>
 <form autocomplete="off">
     <div class="formgrid grid">
         <div class="field col-12 md:col-6 lg:col-4 xl:3">
             <span class="p-float-label input">
-                <input type="text" name="nombre" [(ngModel)]="nombre" pInputText> 
+                <input type="text" 
+                        name="nombre" 
+                        maxlength="60"
+                        [(ngModel)]="nombre" 
+                        required
+                        pInputText
+                > 
                 <label for="float-input">Nombre</label>
             </span>
         </div>
         <div class="field col-12 md:col-6 lg:col-4 xl:3">
             <span class="p-float-label input">
-                <input type="number" min="1" name="precio" [(ngModel)]="precio" pInputText> 
+                <input type="number" 
+                        min="1" 
+                        name="precio" 
+                        [(ngModel)]="precio" 
+                        required
+                        pInputText> 
                 <label for="float-input">Precio</label>
             </span>
         </div>
         <div class="field col-12 md:col-6 lg:col-4 xl:3">
             <span class="p-float-label input">
-                <input type="number" min="1" name="cantidad" [(ngModel)]="cantidad" pInputText> 
+                <input type="number" 
+                        min="1" 
+                        name="cantidad" 
+                        [(ngModel)]="cantidad" 
+                        required
+                        pInputText> 
                 <label for="float-input">Cantidad</label>
             </span>
         </div>
         <div class="field col-12 comment-text-area">
             <span class="p-float-label">
-            <textarea rows="4" name="descripcion" [(ngModel)]="descripcion" pInputTextarea></textarea> 
+            <textarea rows="4" 
+                    name="descripcion" 
+                    maxlength="300"
+                    [(ngModel)]="descripcion" 
+                    pInputTextarea
+                    >
+                </textarea> 
                 <label for="float-input">Descripcion</label>
             </span>
         </div>
         <div class="field col">
-            <input type="file" name="imagen" (change)="subirArchivo($event)">
+            <input type="file" 
+                    accept=".png, .jpg, .svg"
+                    name="imagen" 
+                    (change)="subirArchivo($event)"
+            >
         </div>
         <div class="col-4 col-offset-4">
             <button pButton label="Añadir" (click)="editarProducto()" type="button"></button>

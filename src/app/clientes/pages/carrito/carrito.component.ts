@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from '../../services/cliente.service';
+import { Producto } from '../../../administrador/interfaces/producto.interface';
 
 @Component({
   selector: 'app-carrito',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private http: ClienteService) { }
+  
+  products: Producto[]=[];
+    
   ngOnInit(): void {
+    this.http.getProductosCarrito()
+      .subscribe(res=>{
+        console.log(res);
+        
+      })
   }
+
+
+
 
 }

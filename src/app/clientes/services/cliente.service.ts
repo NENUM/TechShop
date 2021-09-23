@@ -23,4 +23,19 @@ export class ClienteService {
       headers: this.headerParams
     });
   }
+
+  postProductosCarrito():Observable<Producto>{
+    return this.http.post<Producto>('http://localhost:8080/techshop/web/v1/carrito/producto',{
+      headers: this.headerParams
+    })
+  }
+
+  getProductosCarrito():Observable<Producto[]>{
+    console.log(this.headerParams);
+    
+    return this.http.post<Producto[]>('http://localhost:8080/techshop/web/v1/carrito/producto/1',{
+      headers: this.headerParams
+    })
+  }
+
 }

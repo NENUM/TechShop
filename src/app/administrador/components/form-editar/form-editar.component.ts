@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Producto } from '../../interfaces/producto.interface';
 import { AdministradorServiceService } from '../../services/administrador-service.service';
-
+import {MessageService} from 'primeng/api';
 @Component({
   selector: 'app-form-editar',
   templateUrl: './form-editar.component.html',
@@ -12,7 +12,9 @@ export class FormEditarComponent implements OnInit {
 
   constructor(public ref:DynamicDialogRef, 
               public config: DynamicDialogConfig, 
-              private productService: AdministradorServiceService) { }
+              private productService: AdministradorServiceService,
+              private messageService: MessageService
+              ) { }
 
   ngOnInit(): void {
     this.obtenerProductoID();
@@ -29,6 +31,14 @@ export class FormEditarComponent implements OnInit {
 
   subirArchivo(event:any){
     this.imagen = event.target.files[0];
+    if (this.imagen.size>=200000) {
+      this.messageService.add({
+        severity:'error',
+        summary:'Error al cargar el archivo',
+        detail:'El tamaño de imagen debe ser menor a 200Kb'
+      });
+      return;
+    }
     console.log('Archivo imagen', this.imagen);
     
   }
@@ -53,7 +63,7 @@ export class FormEditarComponent implements OnInit {
       cantidad : this.cantidad
     }
     const imagen = this.imagen
-    if(this.nombre === '' || this.precio === undefined || this.precio <= 0 || this.cantidad === undefined || this.cantidad <= 0 || this.descripcion === ''){
+    if(this.nombre === '' || this.precio === undefined || this.precio <= 0 || this.cantidad === undefined || this.cantidad <= 0 || this.descripcion === '' || imagen.size>=200000 || imagen.size === undefined){
       console.log('Campos vacios')
       
     }else{

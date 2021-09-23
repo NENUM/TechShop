@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GestionProductosComponent } from './administrador/pages/gestion-productos/gestion-productos.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { ProductosComponent } from './clientes/pages/productos/productos.component';
+import { CarritoComponent } from './clientes/pages/carrito/carrito.component';
 
 const routes: Routes =[
   {
@@ -13,6 +14,10 @@ const routes: Routes =[
   {
     path:'cliente',
     component: ProductosComponent
+  },
+  {
+    path:'carrito',
+    component: CarritoComponent
   },
   {
     path:'login',
