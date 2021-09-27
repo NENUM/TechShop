@@ -32,11 +32,11 @@ export class FormAgregarComponent implements OnInit {
 
   subirArchivo(event:any){
     this.imagen = event.target.files[0];
-    if (this.imagen.size>=200000) {
+    if (this.imagen.size>=250000) {
       this.messageService.add({
         severity:'error',
         summary:'Error al cargar el archivo',
-        detail:'El tamaño de imagen debe ser menor a 200Kb'
+        detail:'El tamaño de imagen debe ser menor a 250Kb'
       });
       return;
     }
@@ -55,7 +55,7 @@ export class FormAgregarComponent implements OnInit {
     }
 
     const imagen = this.imagen
-    if(this.nombre === '' || this.precio === undefined || this.precio <= 0 || this.cantidad === undefined || this.cantidad <= 0 || this.descripcion === '' || imagen.size>=200000 || imagen.size === undefined){
+    if(this.nombre === '' || this.precio === undefined || this.precio <= 0 || this.cantidad === undefined || this.cantidad <= 0 || this.descripcion === '' || imagen.size>=250000 || imagen.size === undefined){
       this.messageService.add({
         severity:'warn',
         summary:'Formulario incompleto',

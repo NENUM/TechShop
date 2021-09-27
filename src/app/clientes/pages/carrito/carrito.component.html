@@ -1,5 +1,5 @@
 <h2>Carrito de compras</h2>
-<p-table >
+<p-table [value]="products">
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
             Products
@@ -11,18 +11,16 @@
             <th>Imagen</th>
             <th>Precio</th>
             <th>Cantidad</th>
-            <th>Reviews</th>
-            <th>Status</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
         <tr>
-            <td>{{product.name}}</td>
-            <td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="p-shadow-4" /></td>
-            <td>{{product.price | currency:'USD'}}</td>
-            <td>{{product.category}}</td>
+            <td>{{product.nombre}}</td>
+            <td><img [src]="product.imagen" [alt]="product.name" width="100" class="p-shadow-4" /></td>
+            <td>{{product.valor | currency:'USD'}}</td>
+            <td>{{product.cantidad}}</td>
             <!-- <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
-            <td><span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span></td>
+            <!-- <td><span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span></td> -->
         </tr>
     </ng-template>
     <ng-template pTemplate="summary">

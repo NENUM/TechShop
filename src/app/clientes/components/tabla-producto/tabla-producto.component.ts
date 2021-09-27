@@ -52,8 +52,18 @@ export class TablaProductoComponent implements OnInit {
    }
   }
 
-  addCart(id:number){
-    console.log(id);
+  addCart(id:number, cantidad:number){
+    console.log(id)
+    const carrito ={
+      idUsuario: 1,
+      idProducto: id,
+      cantidad
+    }
+    this.productos.postProductosCarrito(carrito)
+      .subscribe((res)=>{
+        console.log(res);
+        
+      })
   }
 
 }

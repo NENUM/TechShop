@@ -46,8 +46,10 @@ export class GestionProductosComponent implements OnInit {
       baseZIndex: 10000
     });
 
-    this.ref.onClose.subscribe((product: boolean)=>{
+    this.ref.onClose.subscribe((product: Boolean)=>{
       console.log('gestion: ',typeof product)
+      // console.log('gestion la weada: ', product.ok)
+
       if(product){
         this.messageService.add({
           severity:'success',
@@ -55,7 +57,7 @@ export class GestionProductosComponent implements OnInit {
         });
       }
       
-      // if(!product){
+      // if(!product.ok){
       //   this.messageService.add({
       //     severity:'error',
       //     summary:'Error el producto no se agrego correctamente',

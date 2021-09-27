@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Producto } from '../../administrador/interfaces/producto.interface';
+import { Carrito } from '../interfaces/carrito.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,16 +25,16 @@ export class ClienteService {
     });
   }
 
-  postProductosCarrito():Observable<Producto>{
-    return this.http.post<Producto>('http://localhost:8080/techshop/web/v1/carrito/producto',{
+  postProductosCarrito(carrito: Carrito):Observable<Carrito>{
+    return this.http.post<Carrito>('http://localhost:8080/techshop/web/v1/carrito/producto',carrito,{
       headers: this.headerParams
     })
   }
 
-  getProductosCarrito():Observable<Producto[]>{
+  getProductosCarrito():Observable<Carrito[]>{
     console.log(this.headerParams);
     
-    return this.http.post<Producto[]>('http://localhost:8080/techshop/web/v1/carrito/producto/1',{
+    return this.http.get<Carrito[]>('http://localhost:8080/techshop/web/v1/carrito/producto/1',{
       headers: this.headerParams
     })
   }
