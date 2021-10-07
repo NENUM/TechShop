@@ -1,31 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { GestionProductosComponent } from './administrador/pages/gestion-productos/gestion-productos.component';
-import { LoginComponent } from './auth/pages/login/login.component';
-import { ProductosComponent } from './clientes/pages/productos/productos.component';
-import { CarritoComponent } from './clientes/pages/carrito/carrito.component';
 
 const routes: Routes =[
   {
-    path:'',
-    component: GestionProductosComponent
+    path:'administrador',
+    loadChildren: ()=>import('./administrador/administrador.module').then(m=>m.AdministradorModule)
   },
   {
     path:'cliente',
-    component: ProductosComponent
-  },
-  {
-    path:'carrito',
-    component: CarritoComponent
+    loadChildren: ()=>import('./clientes/clientes.module').then(m=>m.ClientesModule)
   },
   {
     path:'login',
-    component: LoginComponent
+    loadChildren: ()=>import('./auth/auth.module').then(m=>m.AuthModule)
   },
   {
     path:'**',
-    component: GestionProductosComponent
+    redirectTo: 'cliente'
   }
 ]
 

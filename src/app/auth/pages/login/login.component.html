@@ -1,3 +1,39 @@
-<button pButton label="Login"
-    (click)="login()"
-></button>
+<p-card>
+    <h2>Inicia Sesion</h2>
+    <div class="grid">
+        <!-- panel imagen -->
+        <div class="col">
+            Espacio para la imagen
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <!-- panel formulario -->
+        <div class="col">
+            <!-- Usuario -->
+            <form action="">
+                <div class="field grid">
+                    <label for="usuario" class="col-fixed">Usuario</label>
+                    <div class="col">
+                        <input id="usuario" type="text" class="inputfield" placeholder="Usuario" pInputText>
+                    </div>
+                </div>
+          
+            <!-- Password -->
+          
+                <div class="field grid">
+                    <label for="password" class="col-fixed">Contraseña</label>
+                    <div class="col">
+                        <input id="password" type="password" class="inputfield" placeholder="Contraseña" pInputText>
+                    </div>
+                </div>
+
+            <!-- Submit -->
+                <div class="col">
+                    <button pButton label="Login"
+                    (click)="login()"
+                ></button>
+                </div>
+            </form>
+        </div> 
+    </div>
+</p-card>
+

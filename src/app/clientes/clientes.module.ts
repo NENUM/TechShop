@@ -4,6 +4,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { TablaProductoComponent } from './components/tabla-producto/tabla-producto.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
+import { ClienteRoutingModule } from './cliente-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { PrimeNGModule } from '../prime-ng/prime-ng.module';
   ],
   imports: [
     CommonModule,
-    PrimeNGModule
+    PrimeNGModule,
+    ClienteRoutingModule
   ]
 })
 export class ClientesModule { }

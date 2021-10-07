@@ -7,6 +7,7 @@ import { FormAgregarComponent } from './components/form-agregar/form-agregar.com
 import { FormsModule } from '@angular/forms';
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { FormEditarComponent } from './components/form-editar/form-editar.component';
+import { AdministradorRoutingModule } from './administrador-routing.module';
 
 
 
@@ -21,7 +22,8 @@ import { FormEditarComponent } from './components/form-editar/form-editar.compon
   imports: [
     CommonModule,
     FormsModule,
-    PrimeNGModule
+    PrimeNGModule,
+    AdministradorRoutingModule
   ]
 })
 export class AdministradorModule { }
