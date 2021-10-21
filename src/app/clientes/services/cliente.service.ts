@@ -31,10 +31,8 @@ export class ClienteService {
     })
   }
 
-  getProductosCarrito():Observable<Carrito[]>{
-    console.log(this.headerParams);
-    
-    return this.http.get<Carrito[]>('http://localhost:8080/techshop/web/v1/carrito/producto/1',{
+  getProductosCarrito(id:string):Observable<Carrito[]>{    
+    return this.http.get<Carrito[]>(`http://localhost:8080/techshop/web/v1/carrito/producto/${id}`,{
       headers: this.headerParams
     })
   }

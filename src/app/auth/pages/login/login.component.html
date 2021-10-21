@@ -9,11 +9,16 @@
         <!-- panel formulario -->
         <div class="col">
             <!-- Usuario -->
-            <form action="">
+            <form autocomplete="off" [formGroup]="form" (ngSubmit)="login()">
                 <div class="field grid">
                     <label for="usuario" class="col-fixed">Usuario</label>
                     <div class="col">
-                        <input id="usuario" type="text" class="inputfield" placeholder="Usuario" pInputText>
+                        <input id="usuario" 
+                                formControlName="username"
+                                type="text" 
+                                class="inputfield" 
+                                placeholder="Usuario" 
+                                pInputText>
                     </div>
                 </div>
           
@@ -22,14 +27,20 @@
                 <div class="field grid">
                     <label for="password" class="col-fixed">Contraseña</label>
                     <div class="col">
-                        <input id="password" type="password" class="inputfield" placeholder="Contraseña" pInputText>
+                        <input id="password" 
+                                formControlName="password"
+                                type="password" 
+                                class="inputfield" 
+                                placeholder="Contraseña" 
+                                pInputText>
                     </div>
                 </div>
 
             <!-- Submit -->
                 <div class="col">
-                    <button pButton label="Login"
-                    (click)="login()"
+                    <button pButton 
+                        label="Login"
+                        type="submit"
                 ></button>
                 </div>
             </form>

@@ -19,9 +19,12 @@ export class TablaProductoComponent implements OnInit {
 
   loading: boolean = false;
 
+  idUser!: string;
+
   constructor(private productos:ClienteService, public primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.idUser = localStorage.getItem('id') || '';
     this.obtenerProductos();
     this.sortOptions = [
       {label: 'Mayor Precio', value: '!precio'},
@@ -55,7 +58,7 @@ export class TablaProductoComponent implements OnInit {
   addCart(id:number, cantidad:number){
     console.log(id)
     const carrito ={
-      idUsuario: 1,
+      idUsuario: this.idUser,
       idProducto: id,
       cantidad
     }

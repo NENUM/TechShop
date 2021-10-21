@@ -5,6 +5,7 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { TablaProductoComponent } from './components/tabla-producto/tabla-producto.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { ClienteRoutingModule } from './cliente-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,7 +18,8 @@ import { ClienteRoutingModule } from './cliente-routing.module';
   imports: [
     CommonModule,
     PrimeNGModule,
-    ClienteRoutingModule
+    ClienteRoutingModule,
+    SharedModule
   ]
 })
 export class ClientesModule { }

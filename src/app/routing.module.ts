@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { GuardsGuard } from './guards/guards.guard';
 
 const routes: Routes =[
   {
     path:'administrador',
-    loadChildren: ()=>import('./administrador/administrador.module').then(m=>m.AdministradorModule)
+    loadChildren: ()=>import('./administrador/administrador.module').then(m=>m.AdministradorModule),
+    // canActivate:[GuardsGuard],
+    // canLoad:[GuardsGuard]
   },
   {
     path:'cliente',

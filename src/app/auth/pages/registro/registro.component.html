@@ -1,1 +1,78 @@
-<p>registro works!</p>
+<p-card>
+    <h2>Inicia Sesion</h2>
+    <div class="grid">
+        <!-- panel imagen -->
+        <div class="col">
+            Espacio para la imagen
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <!-- panel formulario -->
+        <div class="col">
+            <form autocomplete="off" [formGroup]="form" (ngSubmit)="registrar()">
+
+                <!-- Nombre -->
+                <div class="field grid">
+                    <label for="name" class="col-fixed">Nombre</label>
+                    <div class="col">
+                        <input id="name" 
+                                formControlName="name"
+                                type="text" 
+                                class="inputfield" 
+                                placeholder="Nombre" 
+                                pInputText>
+                    </div>
+                </div>
+                
+            <!-- Usuario -->
+                <div class="field grid">
+                    <label for="usuario" class="col-fixed">Usuario</label>
+                    <div class="col">
+                        <input id="usuario" 
+                                formControlName="username"
+                                type="text" 
+                                class="inputfield" 
+                                placeholder="Usuario" 
+                                pInputText>
+                    </div>
+                </div>
+          
+            <!-- Password -->
+          
+                <div class="field grid">
+                    <label for="password" class="col-fixed">Contraseña</label>
+                    <div class="col">
+                        <input id="password" 
+                                formControlName="password"
+                                type="password" 
+                                class="inputfield" 
+                                placeholder="Contraseña" 
+                                pInputText>
+                    </div>
+                </div>
+
+            <!-- Email -->
+            <div class="field grid">
+                <label for="email" class="col-fixed">Correo</label>
+                <div class="col">
+                    <input id="email" 
+                            formControlName="email"
+                            type="text" 
+                            class="inputfield" 
+                            placeholder="Correo" 
+                            pInputText>
+                </div>
+            </div>
+
+            <!-- Submit -->
+                <div class="col">
+                    <button pButton 
+                        label="Login"
+                        type="submit"
+                ></button>
+                </div>
+            </form>
+        </div> 
+    </div>
+</p-card>
+
+
