@@ -5,6 +5,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -14,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroComponent
   ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     ReactiveFormsModule,
     PrimeNGModule,

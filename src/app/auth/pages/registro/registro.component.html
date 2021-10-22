@@ -1,9 +1,9 @@
-<p-card>
-    <h2>Inicia Sesion</h2>
+<div class="card">
+    <div class="flex align-items-center justify-content-center mt-8 bg-bluegray-900">
     <div class="grid">
         <!-- panel imagen -->
         <div class="col">
-            Espacio para la imagen
+            <p class="text-5xl">Registra tus datos</p>
         </div>
         <p-divider layout="vertical"></p-divider>
         <!-- panel formulario -->
@@ -19,8 +19,13 @@
                                 type="text" 
                                 class="inputfield" 
                                 placeholder="Nombre" 
-                                pInputText>
+                                pInputText
+                                
+                                >
                     </div>
+                    <span class="text-pink-500" *ngIf="campoValidado('name')">
+                        {{mensajeNombre}}
+                    </span>
                 </div>
                 
             <!-- Usuario -->
@@ -34,6 +39,9 @@
                                 placeholder="Usuario" 
                                 pInputText>
                     </div>
+                    <span class="text-pink-500" *ngIf="campoValidado('username')">
+                        {{mensajeUsuario}}
+                    </span>
                 </div>
           
             <!-- Password -->
@@ -41,12 +49,23 @@
                 <div class="field grid">
                     <label for="password" class="col-fixed">Contraseña</label>
                     <div class="col">
-                        <input id="password" 
+                        <p-password id="password" 
                                 formControlName="password"
                                 type="password" 
                                 class="inputfield" 
                                 placeholder="Contraseña" 
-                                pInputText>
+                                >
+                            <ng-template pTemplate="footer">
+                                <p-divider></p-divider>
+                                <p class="mt-2">Indicaciones</p>
+                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                    <li>Al menos una minuscula</li>
+                                    <li>Al menos una MAYUSCULA</li>
+                                    <li>Al menos un numer0</li>
+                                    <li>Minimo 8 caracteres</li>
+                                </ul>
+                            </ng-template>
+                        </p-password>    
                     </div>
                 </div>
 
@@ -59,20 +78,36 @@
                             type="text" 
                             class="inputfield" 
                             placeholder="Correo" 
-                            pInputText>
+                            pInputText
+                            required
+                            >
                 </div>
+                <span class="text-pink-500" *ngIf="campoValidado('email')">
+                    {{mensajeEmail}}
+                </span>
             </div>
 
             <!-- Submit -->
                 <div class="col">
                     <button pButton 
-                        label="Login"
+                        label="Registrar"
                         type="submit"
+                        [disabled]="form.invalid"
                 ></button>
                 </div>
             </form>
         </div> 
     </div>
-</p-card>
+    </div>
+</div>
+
+<!-- <pre>{{form.controls.name.errors | json}} </pre>
+<br>
+<pre>{{form.controls.username.errors | json}} </pre>
+<br>
+<pre>{{form.controls.password.errors | json}} </pre>
+<br>
+<pre>{{form.controls.email.errors | json}} </pre>
+<br> -->
 
 

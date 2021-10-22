@@ -1,50 +1,51 @@
-<p-card>
-    <h2>Inicia Sesion</h2>
-    <div class="grid">
-        <!-- panel imagen -->
-        <div class="col">
-            Espacio para la imagen
-        </div>
-        <p-divider layout="vertical"></p-divider>
-        <!-- panel formulario -->
-        <div class="col">
-            <!-- Usuario -->
-            <form autocomplete="off" [formGroup]="form" (ngSubmit)="login()">
-                <div class="field grid">
-                    <label for="usuario" class="col-fixed">Usuario</label>
-                    <div class="col">
-                        <input id="usuario" 
-                                formControlName="username"
-                                type="text" 
-                                class="inputfield" 
-                                placeholder="Usuario" 
-                                pInputText>
+<div class="card">
+    <div class="flex align-items-center justify-content-center mt-8 bg-bluegray-900">
+        <div class="grid mt-8">
+            <!-- panel imagen -->
+            <div class="col">
+                <h1>Inicia Sesion</h1>
+            </div>
+            <p-divider layout="vertical"></p-divider>
+            <!-- panel formulario -->
+            <div class="col">
+                <!-- Usuario -->
+                <form autocomplete="off" [formGroup]="form" (ngSubmit)="login()">
+                    <div class="field grid">
+                        <label for="usuario" class="col-fixed">Usuario</label>
+                        <div class="col">
+                            <input id="usuario" 
+                                    formControlName="username"
+                                    type="text" 
+                                    class="inputfield" 
+                                    placeholder="Usuario" 
+                                    pInputText>
+                        </div>
                     </div>
-                </div>
-          
-            <!-- Password -->
-          
-                <div class="field grid">
-                    <label for="password" class="col-fixed">Contraseña</label>
-                    <div class="col">
-                        <input id="password" 
-                                formControlName="password"
-                                type="password" 
-                                class="inputfield" 
-                                placeholder="Contraseña" 
-                                pInputText>
+            
+                <!-- Password -->
+            
+                    <div class="field grid">
+                        <label for="password" class="col-fixed">Contraseña</label>
+                        <div class="col">
+                            <input id="password" 
+                                    formControlName="password"
+                                    type="password" 
+                                    class="inputfield" 
+                                    placeholder="Contraseña" 
+                                    pInputText>
+                        </div>
                     </div>
-                </div>
 
-            <!-- Submit -->
-                <div class="col">
-                    <button pButton 
-                        label="Login"
-                        type="submit"
-                ></button>
-                </div>
-            </form>
-        </div> 
+                <!-- Submit -->
+                    <div class="col">
+                        <button pButton 
+                            label="Login"
+                            type="submit"
+                    ></button>
+                    </div>
+                </form>
+            </div> 
+        </div>
     </div>
-</p-card>
+</div>
 

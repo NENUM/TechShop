@@ -12,6 +12,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {InputTextModule} from 'primeng/inputtext';
 import {PanelModule} from 'primeng/panel';
+import {PasswordModule} from 'primeng/password';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
 import {TableModule} from 'primeng/table';
@@ -38,6 +39,7 @@ import {ToastModule} from 'primeng/toast';
     InputTextareaModule,
     InputTextModule,
     PanelModule,
+    PasswordModule,
     RatingModule,
     RippleModule,
     TableModule,
