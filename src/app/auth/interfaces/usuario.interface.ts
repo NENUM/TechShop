@@ -7,7 +7,7 @@ export interface Usuario {
 export interface UsuarioRe{
     name:String;
     username:String;
-    password:String;
+    password?:String;
     email:String;
     enable:number;
 }

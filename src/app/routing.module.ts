@@ -7,12 +7,14 @@ const routes: Routes =[
   {
     path:'administrador',
     loadChildren: ()=>import('./administrador/administrador.module').then(m=>m.AdministradorModule),
-    // canActivate:[GuardsGuard],
-    // canLoad:[GuardsGuard]
+    canActivate:[GuardsGuard],
+    canLoad:[GuardsGuard]
   },
   {
     path:'cliente',
-    loadChildren: ()=>import('./clientes/clientes.module').then(m=>m.ClientesModule)
+    loadChildren: ()=>import('./clientes/clientes.module').then(m=>m.ClientesModule),
+    canActivate:[GuardsGuard],
+    canLoad:[GuardsGuard]
   },
   {
     path:'login',

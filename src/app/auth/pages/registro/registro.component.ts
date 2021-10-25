@@ -69,7 +69,7 @@ export class RegistroComponent implements OnInit {
     this.auth.registro(usuario)
     .subscribe((res)=>{
       if(res){
-        Swal.fire('Registrado','Usuario registrado con exito');
+        Swal.fire('Registrado','Usuario registrado con exito','success');
         this.router.navigateByUrl('/login');
       }else{
         Swal.fire('Error','Problema con las cerdenciales','error');

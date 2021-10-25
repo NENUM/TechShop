@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { Usuario, UsuarioRe } from '../interfaces/usuario.interface';
+import { Token } from '../interfaces/token.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,20 +19,24 @@ export class AuthServiceService {
   }
 
   verificar():Observable<boolean>{
-    const url = "http://localhost:8080/helloadmin"
+    const url = "http://localhost:8080/techshop/web/v1/updateToken"
     const headers = new HttpHeaders()
                           .append('Authorization', 'Bearer '+localStorage.getItem('token'));
-    return this.http.get(url,{headers})
-              .pipe(
-                map(res=>{
-                  console.log(res);
-                  return true;
-                }),
-                // catchError(res=>{
-                //   console.log(res);
-                //   return false;
-                // })
-              )
+    const token: Token = {
+      token: localStorage.getItem('token') || ''
+    };
+    
+    return this.http.post<UsuarioRe>(url,token,{headers})
+                .pipe(
+                  map(({enable})=>{
+                    if(enable){
+                      return true;
+                    }else{
+                      return false;
+                    }
+                  }),
+                  catchError(err=>of(false))
+                )
   }
 
   registro(usuario: UsuarioRe){
@@ -50,12 +55,10 @@ export class AuthServiceService {
                 console.log(this._usuario);
                 
               }),
-              map(res=>{
-                console.log('respuesta del map',res);
-                
+              map(res=>{  
                 return res.id
               }),
-              catchError(err=>of(err.ok))
+              catchError(err=>of(err))
             )
       
   }
