@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
-import { Producto } from '../../../administrador/interfaces/producto.interface';
 import { Carrito } from '../../interfaces/carrito.interface';
 
 @Component({
@@ -14,6 +13,7 @@ export class CarritoComponent implements OnInit {
   
   products: Carrito[]=[];
   id!:string;
+  acum:number = 1;
   ngOnInit(): void {
     this.id=localStorage.getItem('id') || '';
     this.http.getProductosCarrito(this.id)
@@ -23,6 +23,24 @@ export class CarritoComponent implements OnInit {
       })
   }
 
+  cantidad(id:number ,num:number){
+    this.acum= id;
+    this.acum+=num;
+    console.log(this.acum);
+  }
+
+  eliminar(id:number){
+    const carrito:Carrito={
+      idUsuario:this.id,
+      idProducto:id
+    }
+
+    this.http.deleteProductosCarrito(carrito)
+        .subscribe((res)=>{
+          console.log(res);
+          
+        })
+  }
 
 
 

@@ -1,0 +1,73 @@
+<div>
+    <app-header></app-header>
+</div>
+<div class="card">
+    <div class="flex-column card-container mb-6">
+        <div class="flex align-items-center justify-content-center bg-bluegray-900">
+            <h2>Perfil de usuario</h2>
+        </div>
+        <div class="flex align-items-center justify-content-center bg-bluegray-900">
+            <div class="card">
+                <form [formGroup]="formUsuario" autocomplete="off" (ngSubmit)="actualizarInfo()">
+                    <div class="field">
+                        <label for="name">Nombre</label>
+                        <input id="name" 
+                                formControlName="name"
+                                type="text" 
+                                class="inputfield w-full" 
+                                pInputText>
+                        <span class="text-pink-500" *ngIf="campoValidado('name')">
+                            {{mensajeNombre}}
+                        </span>
+                    </div>
+                    <div class="field">
+                        <label for="email">Correo</label>
+                        <input id="email" 
+                            formControlName="email"
+                            type="text" 
+                            class="inputfield w-full" 
+                            pInputText>
+                            <span class="text-pink-500" *ngIf="campoValidado('email')">
+                                {{mensajeEmail}}
+                            </span>
+                    </div>
+                    <div class="field">
+                        <label for="password">Actualizar contraseña</label>
+                        <div class="">
+                            <p-password id="password" 
+                                    formControlName="password"
+                                    type="password" 
+                                    class="inputfield w-full" 
+                                    >
+                                <ng-template pTemplate="footer">
+                                    <p-divider></p-divider>
+                                    <p class="mt-2">Indicaciones</p>
+                                    <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                        <li>Al menos una minuscula</li>
+                                        <li>Al menos una MAYUSCULA</li>
+                                        <li>Al menos un numer0</li>
+                                        <li>Minimo 8 caracteres</li>
+                                    </ul>
+                                </ng-template>
+                            </p-password>    
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button type="submit" label="Actualizar" pButton></button>
+                    </div>
+                </form>
+                <form>
+                    <div class="field">
+                        <h2>Direccion</h2>
+                    </div>
+                    <div class="field">
+                        <input id="direccion" type="text" class="inputfield w-full" pInputText>
+                    </div>
+                    <div class="field">
+                        <button label="Actualizar" pButton></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

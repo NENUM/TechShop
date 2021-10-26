@@ -62,4 +62,10 @@ export class AuthServiceService {
             )
       
   }
+
+  logOut(){
+    localStorage.removeItem('name');
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+  }
 }

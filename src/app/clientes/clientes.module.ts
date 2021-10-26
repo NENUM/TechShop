@@ -6,6 +6,8 @@ import { TablaProductoComponent } from './components/tabla-producto/tabla-produc
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,10 +15,12 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ProductosComponent,
     CarritoComponent,
-    TablaProductoComponent
+    TablaProductoComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     PrimeNGModule,
     ClienteRoutingModule,
     SharedModule

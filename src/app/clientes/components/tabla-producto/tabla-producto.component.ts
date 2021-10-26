@@ -55,12 +55,12 @@ export class TablaProductoComponent implements OnInit {
    }
   }
 
-  addCart(id:number, cantidad:number){
+  addCart(id:number){
     console.log(id)
     const carrito ={
       idUsuario: this.idUser,
       idProducto: id,
-      cantidad
+      cantidad:1
     }
     this.productos.postProductosCarrito(carrito)
       .subscribe((res)=>{
