@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductosComponent,
     CarritoComponent,
     TablaProductoComponent,
-    PerfilComponent
+    PerfilComponent,
   ],
   imports: [
     CommonModule,

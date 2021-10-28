@@ -63,6 +63,14 @@ export class AuthServiceService {
       
   }
 
+  recuperar(username:string){
+    const headers = new HttpHeaders()
+                          .append('Authorization', 'Bearer '+localStorage.getItem('token'));
+    return this.http.get(`http://localhost:8080/techshop/web/v1/user/mail/${username}`,{
+      headers
+    })
+  }
+
   logOut(){
     localStorage.removeItem('name');
     localStorage.removeItem('token');

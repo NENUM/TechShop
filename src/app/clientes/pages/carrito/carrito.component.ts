@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
 import { Carrito } from '../../interfaces/carrito.interface';
 
@@ -23,10 +23,14 @@ export class CarritoComponent implements OnInit {
       })
   }
 
-  cantidad(id:number ,num:number){
-    this.acum= id;
+  cantidad(id:number, cantidad:number ,num:number){
     this.acum+=num;
-    console.log(this.acum);
+    const carrito: Carrito={
+      idUsuario:this.id,
+      idProducto: id,
+      cantidad: this.acum
+    }
+    this.http.putProductosCarrito
   }
 
   eliminar(id:number){
@@ -34,7 +38,6 @@ export class CarritoComponent implements OnInit {
       idUsuario:this.id,
       idProducto:id
     }
-
     this.http.deleteProductosCarrito(carrito)
         .subscribe((res)=>{
           console.log(res);
@@ -42,6 +45,8 @@ export class CarritoComponent implements OnInit {
         })
   }
 
-
+  vaciarCarrito(){
+    this.products=[];
+  }
 
 }

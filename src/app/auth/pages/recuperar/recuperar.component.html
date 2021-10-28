@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="flex align-items-center justify-content-center mt-8 bg-bluegray-900">
+        <div class="grid mt-8">
+            <!-- panel imagen -->
+            <div class="col">
+                <h1>Recuperar contraseña</h1>
+            </div>
+            <p-divider layout="vertical"></p-divider>
+            <!-- panel formulario -->
+            <div class="col">
+                <!-- Usuario -->
+                <form autocomplete="off" [formGroup]="form" (ngSubmit)="enviarCorreo()">
+                    <div class="field grid">
+                        <p>Debes de digitar tu usuario con el cual creaste tu cuenta, se enviara un correo de recuperacion al correo vinculado</p>
+                        <label for="usuario" class="col-fixed">Usuario</label>
+                        <div class="col">
+                            <input id="usuario" 
+                                    formControlName="username"
+                                    type="text" 
+                                    class="inputfield" 
+                                    placeholder="Usuario" 
+                                    pInputText>
+                        </div>
+                    </div>
+
+                <!-- Submit -->
+                    <div class="col">
+                        <button pButton 
+                            label="Enviar correo"
+                            type="submit"
+                    ></button>
+                    </div>
+                </form>
+            </div> 
+        </div>
+    </div>
+</div>
