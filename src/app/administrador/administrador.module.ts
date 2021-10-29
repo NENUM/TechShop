@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { FormEditarComponent } from './components/form-editar/form-editar.component';
 import { AdministradorRoutingModule } from './administrador-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -23,7 +24,8 @@ import { AdministradorRoutingModule } from './administrador-routing.module';
     CommonModule,
     FormsModule,
     PrimeNGModule,
-    AdministradorRoutingModule
+    AdministradorRoutingModule,
+    SharedModule
   ]
 })
 export class AdministradorModule { }

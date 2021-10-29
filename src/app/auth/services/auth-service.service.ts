@@ -41,6 +41,10 @@ export class AuthServiceService {
 
   registro(usuario: UsuarioRe){
     return this.http.post<UsuarioRe>('http://localhost:8080/techshop/web/v1/user/save',usuario)
+                .pipe(
+                  map(
+                    res=>{return res}
+                    ),catchError(err=>of(false)))
   }
 
   login(username:string, password: string){

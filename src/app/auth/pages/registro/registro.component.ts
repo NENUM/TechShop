@@ -64,15 +64,16 @@ export class RegistroComponent implements OnInit {
 
   registrar(){
     const usuario = this.form.value;
-    console.log(usuario)
     this.form.markAllAsTouched();
     this.auth.registro(usuario)
-    .subscribe((res)=>{
+    .subscribe(res=>{
+      console.log('respuesta',res);
+      
       if(res){
         Swal.fire('Registrado','Usuario registrado con exito','success');
         this.router.navigateByUrl('/login');
       }else{
-        Swal.fire('Error','Problema con las cerdenciales','error');
+        Swal.fire('Error','El usuario ingresado ya se encuentra registrado','error');
       }
     })
   }
