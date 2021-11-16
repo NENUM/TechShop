@@ -1,0 +1,20 @@
+<app-header></app-header>
+<h2 style="text-align: center">Tus compras realizadas</h2>
+<p-table [value]="orders" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Fecha</th>
+            <th>Direccion</th>
+            <th>Numero de factura</th>
+            <th>Precio total de la compra</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-order>
+        <tr>
+            <td>{{order.sentAt | date:'short'}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.idOrder}}</td>
+            <td>{{order.totalPrice | currency:'USD'}}</td>
+        </tr>
+    </ng-template>
+</p-table>

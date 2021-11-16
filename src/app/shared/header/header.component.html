@@ -2,8 +2,16 @@
     <button mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
-    <span>TechShop</span>
+    <button mat-button (click)="homeUsuario()">TechShop</button>
     <span class="spacer"></span>
+    <button (click)="carritoUsuario()"
+        mat-icon-button>
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <button (click)="historialUsuario()"
+        mat-icon-button>
+      <mat-icon>shopping_bag</mat-icon>
+    </button>
     <span>{{nombre}} </span>
     <button (click)="perfilUsuario()"
         mat-icon-button>
@@ -13,4 +21,4 @@
         mat-icon-button>
       <mat-icon>logout</mat-icon>
     </button>
-  </mat-toolbar>
+</mat-toolbar>

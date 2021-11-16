@@ -8,6 +8,7 @@ import { ClienteRoutingModule } from './cliente-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HistorialComponent } from './pages/historial/historial.component';
 
 
 
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CarritoComponent,
     TablaProductoComponent,
     PerfilComponent,
+    HistorialComponent,
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioRe } from '../../../auth/interfaces/usuario.interface';
+import { Direccion } from '../../interfaces/direccion.interface';
 
 @Component({
   selector: 'app-perfil',
@@ -12,6 +13,8 @@ import { UsuarioRe } from '../../../auth/interfaces/usuario.interface';
 export class PerfilComponent implements OnInit {
 
   username!: string;
+  idUsuario!: string;
+  optional: boolean=false;
 
   constructor(private http:ClienteService, private fb: FormBuilder) { }
 
@@ -23,8 +26,17 @@ export class PerfilComponent implements OnInit {
     enable: [1]
   });
 
+  formDireccion: FormGroup = this.fb.group({
+    address: ['', [Validators.required]],
+    city: ['', [Validators.required]],
+    region: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
+    idUser: ['']
+  });
+
   ngOnInit(): void {
     this.username = localStorage.getItem('name') || '';
+    this.idUsuario = localStorage.getItem('id') || '';
     this.http.getUsuario(this.username)
     .subscribe((res)=>{
       this.formUsuario.reset({
@@ -34,6 +46,19 @@ export class PerfilComponent implements OnInit {
       })
     }
     )
+
+    this.http.getAddress(this.idUsuario).subscribe((res)=>{
+      if (res) {
+        this.optional = true;
+      }
+      this.formDireccion.reset({
+        address:res.address,
+        city: res.city,
+        region: res.region,
+        phone: res.phone,
+        idUser: this.idUsuario
+      })
+    })
     
   }
 
@@ -71,6 +96,22 @@ export class PerfilComponent implements OnInit {
             console.log(res);
             
           })
+  }
+
+  agregarDireccion(){
+    const direccion:Direccion = this.formDireccion.value;
+    direccion.idUser = this.idUsuario;
+    console.log(direccion);
+    this.http.postAddress(direccion).subscribe((res)=>{console.log(res)
+    })
+  }
+
+  actualizarDireccion(){
+    const direccion:Direccion = this.formDireccion.value;
+    direccion.idUser = this.idUsuario;
+    console.log(direccion);
+    this.http.putAddress(direccion).subscribe((res)=>{console.log(res)
+    })
   }
 
 }

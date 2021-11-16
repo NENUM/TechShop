@@ -20,6 +20,18 @@ export class HeaderComponent implements OnInit {
     this.nombre = localStorage.getItem('name') || '';
   }
 
+  homeUsuario(){
+    this.router.navigateByUrl('/cliente/productos')
+  }
+
+  carritoUsuario(){
+    this.router.navigateByUrl('/cliente/carrito')
+  }
+
+  historialUsuario(){
+    this.router.navigateByUrl('/cliente/historial')
+  }
+
   perfilUsuario(){
     this.router.navigateByUrl('/cliente/perfil')
   }

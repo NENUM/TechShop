@@ -2,7 +2,7 @@
     <app-header></app-header>
 </div>
 <div class="card">
-    <div class="flex-column card-container mb-6">
+    <div class="flex-column card-container mb-6" style="color: white">
         <div class="flex align-items-center justify-content-center bg-bluegray-900">
             <h2>Perfil de usuario</h2>
         </div>
@@ -56,15 +56,45 @@
                         <button type="submit" label="Actualizar" pButton></button>
                     </div>
                 </form>
-                <form>
+                <form [formGroup]="formDireccion" autocomplete="off">
                     <div class="field">
                         <h2>Direccion</h2>
                     </div>
                     <div class="field">
-                        <input id="direccion" type="text" class="inputfield w-full" pInputText>
+                        <label for="address">Direccion</label>
+                        <input id="address" 
+                            formControlName="address"
+                            type="text" 
+                            class="inputfield w-full" 
+                            pInputText>
                     </div>
                     <div class="field">
-                        <button label="Actualizar" pButton></button>
+                        <label for="city">Ciudad</label>
+                        <input id="city" 
+                            formControlName="city"
+                            type="text" 
+                            class="inputfield w-full" 
+                            pInputText>
+                    </div>
+                    <div class="field">
+                        <label for="region">Region</label>
+                        <input id="region" 
+                            formControlName="region"
+                            type="text" 
+                            class="inputfield w-full" 
+                            pInputText>
+                    </div>
+                    <div class="field">
+                        <label for="phone">Telefono</label>
+                        <input id="phone" 
+                            formControlName="phone"
+                            type="text" 
+                            class="inputfield w-full" 
+                            pInputText>
+                    </div>
+                    <div class="field">
+                        <button type="button" class="mr-1" label="Agregar" *ngIf="!optional" (click)="agregarDireccion()" pButton></button>
+                        <button type="button" label="Actualizar" *ngIf="optional" (click)="actualizarDireccion()" pButton></button>
                     </div>
                 </form>
             </div>
